@@ -1,0 +1,29 @@
+
+
+#SELinux
+vi /etc/sysconfig/selinux
+vi /etc/selinux/config
+SELINUX=permissive
+
+reboot
+
+
+
+vi /etc/yum.repos.d/cdrom.repo
+# rpm --import /mnt/cdrom/*GPG*
+# yum install yum-utils openssh-clients net-tools bind-utils ntp zip unzip
+[cdrom]
+name=cdrom
+baseurl=file:///mnt/cdrom
+enabled=1
+gpgcheck=1
+
+
+vi /etc/security/limits.conf
+root - nofile 65536
+root - nproc  65536
+ *   - nofile 65536
+ *   - nproc  65536
+
+
+
